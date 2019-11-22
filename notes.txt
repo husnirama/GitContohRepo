@@ -1,0 +1,68 @@
+create database loan;
+
+drop database loan;
+
+use loan;
+
+show tables;
+
+update loan.loan_desc set
+Data_Type='integer'
+where
+Variable_Name='ca';
+
+select Variable_Name, Description from loan.loan_desc where Variable_Name like "%e";
+
+
+
+
+
+
+CREATE TABLE loan_desc(
+Variable_Name varchar(255),
+Description varchar(255),
+Data_Type varchar(255)
+);
+
+alter table loan.loan_desc add(
+Description1 varchar(255));
+
+Select * from loan_desc;
+
+alter table loan.loan_desc
+drop column Description1;
+
+alter table loan.loan_desc
+modify Data_Type varchar(30);
+
+
+LOAD DATA LOCAL INFILE "D:/documents/Data Dictionary.csv" INTO TABLE loan.loan_desc
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(Variable_Name, Description, Data_Type);
+
+insert into loan.loan_desc (Variable_Name,Description)
+values ("ca","CA BALANCE");
+
+
+ALTER TABLE database_name.table_name
+  ADD CONSTRAINT [ constraint_name ]
+    PRIMARY KEY [ USING BTREE | HASH ] (column1, column2, ... column_n)
+
+insert into loan.loan_desc
+Values (
+"sa","SA BALANCE", "percentage");
+
+CREATE TABLE table_name
+(
+  column1 column_definition,
+  column2 column_definition,
+  ...
+
+  CONSTRAINT [constraint_name] 
+   PRIMARY KEY [ USING BTREE | HASH ] (column1, column2, ... column_n)
+);
+
+SHOW VARIABLES LIKE 'local_infile';
+SET GLOBAL local_infile = 1;
